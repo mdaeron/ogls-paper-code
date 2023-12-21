@@ -1,0 +1,20 @@
+[project]
+name = "ogls-paper-code"
+version = "0.1.0"
+description = "Code used by Daëron & Vermeesh (2023)"
+authors = ["mdaeron <mathieu@daeron.fr>"]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tasks]
+code = { cmd = "python ogls_manuscript.py", cwd = "code" }
+
+[dependencies]
+python = "3.11.*"
+numpy = ">=1.26.2,<1.27"
+scipy = ">=1.11.4,<1.12"
+matplotlib = ">=3.8.2,<3.9"
+lmfit = ">=1.2.2,<1.3"
+loguru = ">=0.7.2,<0.8"
+typer = ">=0.9.0,<0.10"
+tqdm = ">=4.66.1,<4.67"
