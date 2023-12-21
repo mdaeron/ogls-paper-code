@@ -1,6 +1,6 @@
 [project]
 name = "ogls-paper-code"
-version = "0.1.0"
+version = "1.0.0"
 description = "Code used by Daëron & Vermeesh (2023)"
 authors = ["mdaeron <mathieu@daeron.fr>"]
 channels = ["conda-forge"]
