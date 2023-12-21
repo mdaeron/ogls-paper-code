@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10418916.svg)](https://doi.org/10.5281/zenodo.10418916)
+
 # OGLS paper code
 
 Code used in the OGLS paper of [_Daëron & Vermeesh_ (2023)](https://10.1016/j.chemgeo.2023.121881).
