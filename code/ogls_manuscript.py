@@ -3,6 +3,9 @@
 Produce floats and data for OGLS manuscript
 """
 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
 from pylab import *
 from scipy.stats import chi2, kstest, norm
 from matplotlib import ticker
