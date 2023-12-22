@@ -160,7 +160,7 @@ def fig_pearson_york():
 		ncol = 1,
 		)
 
-	fig.savefig('output/PearsonYork.pdf')
+	fig.savefig('output/fig-04.pdf')
 	close(fig)
 	
 
@@ -200,7 +200,7 @@ def fig_example_sYX():
 		xlabel('$\\mathit{x}$')
 		ylabel('$\\mathit{y}$', rotation = 0, labelpad = 10)
 
-	savefig('output/example_sYX.pdf')
+	savefig('output/fig-05.pdf')
 
 
 def fig_example_sY():
@@ -238,7 +238,7 @@ def fig_example_sY():
 		ylabel('$\\mathit{y}$', rotation = 0, labelpad = 10)
 		axis([-2, 2, -4, 4])
 
-	savefig('output/example_sY.pdf')
+	savefig('output/fig-06.pdf')
 
 
 def fig_convergence_issue():
@@ -282,7 +282,7 @@ def fig_convergence_issue():
 	legend(frameon = False, handlelength = 3.5)
 	axis([X[0]-0.9, X[-1]+0.9, Y.min()-10, Y.max()+20])
 
-	savefig('output/convergence_issue.pdf')
+	savefig('output/fig-07.pdf')
 
 
 def reorder_matrix_for_compact_blocks(M):
@@ -601,7 +601,7 @@ def unicalib_plot():
 	plot_unicalib_low_T(ax2)
 	plot_unicalib_residuals(ax3)
 	
-	savefig('output/unicalib.pdf')
+	savefig('output/fig-11.pdf')
 	close(fig)
 
 
@@ -785,7 +785,7 @@ def KS_plots(add_arrow = True):
 # 			))
 
 
-	savefig(f'output/KS_tests.pdf')
+	savefig(f'output/fig-14.pdf')
 	close(fig)
 
 	fig = figure(figsize = (3,3))
@@ -816,7 +816,7 @@ def KS_plots(add_arrow = True):
 	xlabel('p-value')
 	ylabel('CDF', labelpad = -5)
 
-	savefig(f'output/KS_tests_all.pdf')
+	savefig(f'output/fig-S2.pdf')
 	close(fig)
 
 
@@ -829,6 +829,7 @@ def calib_plots():
 			zorder = 200,
 			title = '“Devils Laghetto” calibration,\ncombined from $\\mathcal{[A21·LSCE]}$ and $\\mathcal{[F21]}$',
 			label = 'DL23',
+			filename = 'fig-18.pdf',
 			ls = (0, (6,2)),
 			Ti = [35,25,15,6],
 			),
@@ -838,6 +839,7 @@ def calib_plots():
 			zorder = 200,
 			title = 'Anderson et al. [2021] – LSCE data',
 			label = 'A21_LSCE',
+			filename = 'fig-S3.pdf',
 			ls = (0, (6,2)),
 			Ti = [35,25,15,6],
 			),
@@ -846,6 +848,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Anderson et al. [2021] – MIT data',
 			label = 'A21_MIT',
+			filename = 'fig-17d.pdf',
 			ls = (0, (6,2)),
 			),
 		breitenbach_2018: dict(
@@ -853,6 +856,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Breitenbach et al. [2018]',
 			label = 'B18',
+			filename = 'fig-17a.pdf',
 			ls = (0, (6,2,2,2)),
 			Ti = [50,30,15,0],
 			),
@@ -861,6 +865,7 @@ def calib_plots():
 			ms = 3.6,
 			title = 'Fiebig et al. [2021]',
 			label = 'F21',
+			filename = 'fig-17e.pdf',
 			ls = (0, (6,2,2,2)),
 	# 		Ti = [40,25,10,0],
 			),
@@ -869,6 +874,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Huyghe et al. [2022]',
 			label = 'H22',
+			filename = 'fig-17f.pdf',
 			ls = (0, (2,1)),
 			Ti = [25,15,5,-3],
 			),
@@ -877,6 +883,7 @@ def calib_plots():
 			ms = 3.2,
 			title = 'Jautzy et al. [2020]',
 			label = 'J20',
+			filename = 'fig-17c.pdf',
 			ls = (0, (6,2,2,2,2,2)),
 			),
 		peral_2018: dict(
@@ -884,6 +891,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Peral et al. [2018]',
 			label = 'P18',
+			filename = 'fig-17b.pdf',
 			ls = (0, (6,2,2,2,2,2)),
 			Ti = [25,17,8,1],
 			),
@@ -893,6 +901,7 @@ def calib_plots():
 		_calib_ = calibs[calib]
 		XsX = list(zip(calib.X, diag(calib.sX)**.5))
 		label = _calib_['label']
+		filename = _calib_['filename']
 		fig = figure(figsize = (4,4))
 		subplots_adjust(.15,.15,.9,.9)
 		calib.invT_xaxis(**({'Ti': _calib_['Ti']} if 'Ti' in _calib_ else {}))
@@ -924,7 +933,7 @@ def calib_plots():
 			gca().yaxis.set_major_locator(ticker.MultipleLocator(0.1))
 		else:
 			gca().yaxis.set_major_locator(ticker.MultipleLocator(0.04))
-		savefig(f"output/{label}.pdf")
+		savefig(f"output/{filename}")
 
 
 def unicalib_rounding():
@@ -1234,7 +1243,7 @@ b = {b:.3f} ± {CM[0,0]**.5:.3f} (1SE)''')
 	legend(handlelength = 3, frameon = False, fontsize = 8, loc = 'center left', bbox_to_anchor = (.02,.94))
 	grid(None)
 
-	savefig('output/obs_vs_theory.pdf')
+	savefig('output/fig-15.pdf')
 	close(fig)
 
 
@@ -1301,7 +1310,7 @@ def conf_limits():
 	xlabel('T (°C)')
 	ylabel('Δ$_{47}$ difference from $\\mathcal{[OGLS23]}$ (ppm)')
 	ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, pos: f'${x:+.0f}$' if x else '$0$'))
-	savefig('output/conf_limits.pdf')
+	savefig('output/fig-S1.pdf')
 	close(fig)
 
 def cov_ellipse(cov, q = .95):
@@ -1432,7 +1441,7 @@ def conf_ellipses():
 	xlabel('Regression slope / $10^3$')
 	ylabel(f'Predicted $Δ_{{47}}$ value at {T0:.0f} °C')
 	subplots_adjust(.16, .12, .95,.65)
-	savefig('output/conf_ellipses.pdf')
+	savefig('output/fig-13.pdf')
 	close(fig)
 
 def qmc(
@@ -1533,7 +1542,7 @@ def unical_confidence_limits():
 	subplots_adjust(.15, .13, .96, .94, .1, .32)
 	plot_95CL(sp = (221, 223))
 	qmc(Ti = [0., 25, 1000], sp = [322, 324, 326], spl = 'cde')
-	savefig('output/unical_confidence_limits.pdf')
+	savefig('output/fig-16.pdf')
 	close(fig)
 
 def export_str(k, v, fid):
@@ -1708,7 +1717,7 @@ def toyexample():
 # 	ax.text(X[2]-2,Y[2]-4,'3')
 # 	ax.text(X[3]-2,Y[3]-5,'4')
 
-	savefig('output/toyexample.pdf')
+	savefig('output/fig-02.pdf')
 	close(fig)
 
 def poly_degrees_table():
@@ -1838,7 +1847,7 @@ def wavg():
 			xlabel('$\\mathit{x}$')
 		ylabel('$\\mathit{y}$', rotation = 0, labelpad = 10)
 
-	savefig('output/wavg.pdf')
+	savefig('output/fig-08.pdf')
 	close(fig)
 
 
@@ -1876,16 +1885,18 @@ if __name__ == '__main__':
 		fig_convergence_issue()
 
 		print('D47correl plot')
-		D47correl(anderson_2021_mit, 'A21_MIT_D47correl', -.1, 0.4)
-		D47correl(anderson_2021_lsce, 'A21_LSCE_D47correl', -.1, 0.4)
-		D47correl(breitenbach_2018, 'B18_D47correl', -.1, 0.4)
-		D47correl(peral_2018, 'P18_D47correl', -.1, 0.4)
-		D47correl(fiebig_2021, 'F21_D47correl', 0, 0.5)
-		D47correl(jautzy_2020, 'J20_D47correl', 0, 0.5)
-		D47correl(huyghe_2022, 'H22_D47correl', -.1, 0.4)
+		D47correl(anderson_2021_mit, 'D47correl_A21_MIT', -.1, 0.4)
+		D47correl(anderson_2021_lsce, 'D47correl_A21_LSCE', -.1, 0.4)
+		D47correl(breitenbach_2018, 'D47correl_B18', -.1, 0.4)
+		D47correl(peral_2018, 'D47correl_P18', -.1, 0.4)
+		D47correl(fiebig_2021, 'D47correl_F21', 0, 0.5)
+		D47correl(jautzy_2020, 'fig-10a', 0, 0.5)
+		D47correl(huyghe_2022, 'D47correl_H22', -.1, 0.4)
+		D47correl(devils_laghetto_2023, 'D47correl_D23', -.1, 0.4)
 
 		print('Tcorrel plot')
-		Tcorrel(peral_2018, 'P18_Tcorrel', 0.85, 1, reorder = False)
+		Tcorrel(peral_2018, 'fig-10b', 0.85, 1, reorder = False)
+		Tcorrel(devils_laghetto_2023, 'Tcorrel_DL23', 0.85, 1, reorder = False)
 
 		print('Unical plot')
 		unicalib_plot()
