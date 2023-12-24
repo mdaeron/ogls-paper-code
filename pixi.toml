@@ -7,7 +7,7 @@ channels = ["conda-forge"]
 platforms = ["osx-arm64"]
 
 [tasks]
-code = { cmd = "python ogls_manuscript.py", cwd = "code" }
+code = { cmd = "python ogls-paper-code.py", cwd = "code" }
 
 [dependencies]
 python = "3.11.*"
