@@ -447,15 +447,15 @@ def plot_unicalib_full_range(ax):
 	box_x2 = Xmax
 	box_y1 = D47min
 	box_y2 = D47max
-	arrow_x = Xmax + 4.8e-6
-	arrow_y = D47min + (D47max - D47min)*0.35
+	arrow_x = Xmin + (Xmax - Xmin)*0.25
+	arrow_y = D47max + 0.1
 
 	plot(
-		[box_x2, box_x2, box_x1, box_x1, box_x2, box_x2, arrow_x],
-		[arrow_y, box_y2, box_y2, box_y1, box_y1, arrow_y, arrow_y],
-		'k-', alpha = .4, lw = 1.5, scaley = False, scalex = False, clip_on = False,
+		[arrow_x, box_x1, box_x1, box_x2, box_x2, arrow_x, arrow_x],
+		[box_y2, box_y2, box_y1, box_y1, box_y2, box_y2, arrow_y],
+		'k-', alpha = .2, lw = 1.5, scaley = False, scalex = False, clip_on = False,
 		)
-	plot(arrow_x, arrow_y, '>', ms = 6, mec = 'None', mfc = [.4]*3, scaley = False, scalex = False, clip_on = False)
+	plot(arrow_x, arrow_y, '^', ms = 6, mec = 'None', mfc = [.8]*3, scaley = False, scalex = False, clip_on = False)
 
 # 	atxt = f'{ogls_2023.bfp["a2"]/1000:.2f}\\cdot 10^3'
 # 	btxt = f'{ogls_2023.bfp["a1"]:.2f}'
@@ -587,24 +587,24 @@ def plot_unicalib_residuals(ax3):
 
 def unicalib_plot():
 
-	fig = figure(figsize = (9,4.5))
+	fig = figure(figsize = (5,8))
 	subplots_adjust(
-		left = 0.09,
-		right = .98,
-		top = .96,
-		bottom = 0.15,
-		wspace = .3,
+		left = 0.14,
+		right = .96,
+		top = .975,
+		bottom = 0.07,
+		wspace = -.9,
 		hspace = .1)
 
-	ax = subplot(121)
-	ax2 = subplot(122)
-	ax3 = fig.add_axes((.14, .65, .13, .25))
+	ax = subplot(212)
+	ax2 = subplot(211)
+	ax3 = fig.add_axes((.225, .33,.27,.135))
 
 	plot_unicalib_full_range(ax)
 	plot_unicalib_low_T(ax2)
 	plot_unicalib_residuals(ax3)
 	
-	savefig('output/fig-11-horizontal.pdf')
+	savefig('output/fig-11.pdf')
 	close(fig)
 
 
