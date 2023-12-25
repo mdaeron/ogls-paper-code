@@ -788,7 +788,7 @@ def KS_plots(add_arrow = True):
 # 			))
 
 
-	savefig(f'output/fig-14.pdf')
+	savefig(f'output/fig-13.pdf')
 	close(fig)
 
 	fig = figure(figsize = (3,3))
@@ -832,7 +832,7 @@ def calib_plots():
 			zorder = 200,
 			title = '“Devils Laghetto” calibration,\ncombined from $\\mathcal{[A21·LSCE]}$ and $\\mathcal{[F21]}$',
 			label = 'DL23',
-			filename = 'fig-18.pdf',
+			filename = 'fig-17.pdf',
 			ls = (0, (6,2)),
 			Ti = [35,25,15,6],
 			),
@@ -851,7 +851,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Anderson et al. [2021] – MIT data',
 			label = 'A21_MIT',
-			filename = 'fig-17d.pdf',
+			filename = 'fig-16d.pdf',
 			ls = (0, (6,2)),
 			),
 		breitenbach_2018: dict(
@@ -859,7 +859,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Breitenbach et al. [2018]',
 			label = 'B18',
-			filename = 'fig-17a.pdf',
+			filename = 'fig-16a.pdf',
 			ls = (0, (6,2,2,2)),
 			Ti = [50,30,15,0],
 			),
@@ -868,7 +868,7 @@ def calib_plots():
 			ms = 3.6,
 			title = 'Fiebig et al. [2021]',
 			label = 'F21',
-			filename = 'fig-17e.pdf',
+			filename = 'fig-16e.pdf',
 			ls = (0, (6,2,2,2)),
 	# 		Ti = [40,25,10,0],
 			),
@@ -877,7 +877,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Huyghe et al. [2022]',
 			label = 'H22',
-			filename = 'fig-17f.pdf',
+			filename = 'fig-16f.pdf',
 			ls = (0, (2,1)),
 			Ti = [25,15,5,-3],
 			),
@@ -886,7 +886,7 @@ def calib_plots():
 			ms = 3.2,
 			title = 'Jautzy et al. [2020]',
 			label = 'J20',
-			filename = 'fig-17c.pdf',
+			filename = 'fig-16c.pdf',
 			ls = (0, (6,2,2,2,2,2)),
 			),
 		peral_2018: dict(
@@ -894,7 +894,7 @@ def calib_plots():
 			ms = 4,
 			title = 'Peral et al. [2018]',
 			label = 'P18',
-			filename = 'fig-17b.pdf',
+			filename = 'fig-16b.pdf',
 			ls = (0, (6,2,2,2,2,2)),
 			Ti = [25,17,8,1],
 			),
@@ -1246,7 +1246,7 @@ b = {b:.3f} ± {CM[0,0]**.5:.3f} (1SE)''')
 	legend(handlelength = 3, frameon = False, fontsize = 8, loc = 'center left', bbox_to_anchor = (.02,.94))
 	grid(None)
 
-	savefig('output/fig-15.pdf')
+	savefig('output/fig-14.pdf')
 	close(fig)
 
 
@@ -1444,7 +1444,7 @@ def conf_ellipses():
 	xlabel('Regression slope / $10^3$')
 	ylabel(f'Predicted $Δ_{{47}}$ value at {T0:.0f} °C')
 	subplots_adjust(.16, .12, .95,.65)
-	savefig('output/fig-13.pdf')
+	savefig('output/fig-12.pdf')
 	close(fig)
 
 def qmc(
@@ -1471,7 +1471,7 @@ def qmc(
 		for csvfile in Path('.').glob('qmc_*.csv'):
 			if int(csvfile.name[4:-4]) >= Ni:
 				qmc_output = genfromtxt(csvfile, delimiter = ',')[:Ni]
-				break			
+				break
 		else:
 			csvfile = f'qmc_{Ni}.csv'
 			reuse_old_qmc = False
@@ -1545,7 +1545,7 @@ def unical_confidence_limits():
 	subplots_adjust(.15, .13, .96, .94, .1, .32)
 	plot_95CL(sp = (221, 223))
 	qmc(Ti = [0., 25, 1000], sp = [322, 324, 326], spl = 'cde')
-	savefig('output/fig-16.pdf')
+	savefig('output/fig-15.pdf')
 	close(fig)
 
 def export_str(k, v, fid):
