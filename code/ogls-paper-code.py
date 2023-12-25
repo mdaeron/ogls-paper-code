@@ -1471,7 +1471,7 @@ def qmc(
 		for csvfile in Path('.').glob('qmc_*.csv'):
 			if int(csvfile.name[4:-4]) >= Ni:
 				qmc_output = genfromtxt(csvfile, delimiter = ',')[:Ni]
-				break			
+				break
 		else:
 			csvfile = f'qmc_{Ni}.csv'
 			reuse_old_qmc = False
