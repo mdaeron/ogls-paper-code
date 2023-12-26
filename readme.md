@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10418916.svg)](https://doi.org/10.5281/zenodo.10418916)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10418915.svg)](https://doi.org/10.5281/zenodo.10418915)
 
 # OGLS paper code
 
